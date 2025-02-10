@@ -1,21 +1,21 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  // Thiết lập Swagger
   const config = new DocumentBuilder()
-  .setTitle('Example NestJS Swagger')
-  .setDescription('API cho User và Order')
-  .setVersion('1.0')
-  // .addBearerAuth() // Nếu dùng JWT, có thể bật xác thực
-  .build();
+    .setTitle('NestJS API')
+    .setDescription('API documentation for NestJS')
+    .setVersion('1.0')
+    .build();
 
-  
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  await app.listen(3002);
+  // Lắng nghe trên cổng 3000 (trong container)
+  await app.listen(3000);
 }
 bootstrap();
