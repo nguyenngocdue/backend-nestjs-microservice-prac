@@ -17,6 +17,8 @@ RUN npm install
 # Sao chép toàn bộ mã nguồn từ thư mục app
 COPY ../app .
 
+RUN npx prisma generate
+
 
 # Mở cổng 3000
 EXPOSE 3000
