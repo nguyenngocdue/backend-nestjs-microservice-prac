@@ -97,3 +97,7 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+
+You have to create a .env file at outside src/
+  DATABASE_URL="postgresql://myuser:mypassword@localhost:5434/mydatabase?schema=public"
