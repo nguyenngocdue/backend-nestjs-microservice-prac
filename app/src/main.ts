@@ -15,7 +15,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  // Lắng nghe trên cổng 3000 (trong container)
-  await app.listen(3000);
+  // Lắng nghe trên cổng 3003 (trong container)
+  await app.listen(3003);
 }
 bootstrap();

@@ -101,3 +101,21 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 
 You have to create a .env file at outside src/
   DATABASE_URL="postgresql://myuser:mypassword@localhost:5434/mydatabase?schema=public"
+
+
+kubectl apply -f k8s/configmaps/backend-configmap.yaml
+kubectl apply -f k8s/configmaps/postgres-configmap.yaml
+kubectl apply -f k8s/secrets/postgres-secret.yaml
+kubectl apply -f k8s/deployments/backend-deployment.yaml
+kubectl apply -f k8s/deployments/postgres-deployment.yaml
+kubectl apply -f k8s/services/backend-service.yaml
+kubectl apply -f k8s/services/postgres-service.yaml
+kubectl apply -f k8s/ingress/ingress.yaml
+
+
+kubectl delete deployment --all
+
+kubectl delete all --all
+
+docker build -t my-app:latest .
+minikube image load my-app:latest
